@@ -16,8 +16,6 @@ void init(Stack *s) {
     s->last = -1;
     s->maxSize = 20;
     s->data = (int *) malloc(s->maxSize * sizeof(int));
-
-    printf("INITIALISED. Size of Data : %lu \n", sizeof(s->data));
 }
 
 void destroy(Stack *s) {
@@ -26,11 +24,6 @@ void destroy(Stack *s) {
 }
 
 void push(Stack *s, int element) {
-
-    printf("Pushing %d \n", element);
-    printf("Counter is: %d \n", s->counter);
-    printf("maxSize is: %d \n", s->maxSize);
-
 
     /* if max index is reached */
     if (s->counter > 0) {
@@ -48,7 +41,6 @@ void push(Stack *s, int element) {
 
     s->data[++s->last] = element;
 
-    printf("%d added to the stack \n", s->data[s->last]);
 }
 
 int pop(Stack *s) {
@@ -74,10 +66,6 @@ void assign(Stack *s, Stack *source) {
     s->counter = source->counter;
     s->last = source->last;
     s->maxSize = source->maxSize;
-
-    /*shallow copy, pointer to same memory
-    s->data = source->data;*/
-    
 
     /*deep copy, different memory*/
     s->data = realloc(s->data, (source->maxSize) * sizeof(source->data));
