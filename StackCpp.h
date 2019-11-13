@@ -11,9 +11,9 @@ public:
 
     StackCpp(const StackCpp &s);
 
-    explicit StackCpp(const StackCpp *s);
+    // explicit StackCpp(const StackCpp *s);
 
-    StackCpp &operator=(const StackCpp *s);
+    StackCpp &operator=(const StackCpp &s);
 
     ~StackCpp();
 

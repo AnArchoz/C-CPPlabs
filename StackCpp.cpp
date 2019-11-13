@@ -57,20 +57,17 @@ StackCpp::~StackCpp() {
 }
 
 StackCpp &StackCpp::operator=(const StackCpp &s) {
-    if (*this == s) {
-        return *this;
-    }
-
+    
     this->last = s.last;
     this->counter = s.counter;
-    this->maxSize = s -.maxSize;
+    this->maxSize = s.maxSize;
 
     this->data = (int *) (realloc(this->data, (s.maxSize) * sizeof(s.data)));
 
-//     int i;
-//     for (i = 0; i < this->maxSize - 1; i++) {
-//         this->data[i] = s->data[i];
-//     }
+    int i;
+    for (i = 0; i < this->maxSize - 1; i++) {
+        this->data[i] = s.data[i];
+    }
 
     return *this;
 }
