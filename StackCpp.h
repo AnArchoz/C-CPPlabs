@@ -1,4 +1,5 @@
 #pragma once
+
 class StackCpp {
 private:
     int last; // Index of free node on stack
@@ -8,9 +9,11 @@ private:
 public:
     StackCpp();
 
-    explicit StackCpp(StackCpp *s);
+    StackCpp(const StackCpp &s);
 
-    StackCpp& operator=(StackCpp *s);
+    explicit StackCpp(const StackCpp *s);
+
+    StackCpp &operator=(const StackCpp *s);
 
     ~StackCpp();
 
