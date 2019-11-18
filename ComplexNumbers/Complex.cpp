@@ -5,6 +5,10 @@ Complex::Complex() : real(0), imaginary(0) {
 
 }
 
+Complex::Complex(double real) {
+    this->real = real;
+}
+
 Complex::Complex(double real, double imaginary) {
     this->real = real;
     this->imaginary = imaginary;

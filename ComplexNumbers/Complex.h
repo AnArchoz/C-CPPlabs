@@ -10,6 +10,8 @@ private:
 public:
     Complex();
 
+    Complex(double real);
+
     Complex(double real, double imaginary);
 
     Complex(const Complex &source);
