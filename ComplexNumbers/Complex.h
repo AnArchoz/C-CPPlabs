@@ -14,21 +14,14 @@ public:
 
     Complex(double real, double imaginary);
 
-    Complex(const Complex &source);
-
-    Complex &operator=(const Complex &source);
-
     /*
      * Plus operators
      */
 
     Complex operator+(const Complex &c1);
 
-    Complex operator+(double sReal);
-
     Complex operator+=(const Complex &c1);
 
-    Complex operator+=(double sReal);
 
     /*
      * Minus operators
@@ -36,11 +29,8 @@ public:
 
     Complex operator-(const Complex &c1);
 
-    Complex operator-(double sReal);
-
     Complex operator-=(const Complex &c1);
 
-    Complex operator-=(double sReal);
 
     /*
      * Multiplication operators
@@ -48,11 +38,7 @@ public:
 
     Complex operator*(const Complex &c1);
 
-    Complex operator*(double sReal);
-
     Complex operator*=(const Complex &c1);
-
-    Complex operator*=(double sReal);
 
     /*
      * Division operators
@@ -60,11 +46,7 @@ public:
 
     Complex operator/(const Complex &c1);
 
-    Complex operator/(double sReal);
-
     Complex operator/=(const Complex &c1);
-
-    Complex operator/=(double sReal);
 
     /*
      * bool Operators
@@ -72,22 +54,21 @@ public:
 
     bool operator==(const Complex &c) const;
 
-    bool operator==(double sReal) const;
-
     bool operator!=(const Complex &c) const;
 
     /*
      * Phase and amplitude
      */
 
-    double getPhase(const Complex &c1);
+    double getPhase() const;
+    
+    double getAmplitude() const;
 
-    //Amplitude?? What is amplitude?
-
+   
     /*
      * Getters and Setters, for usage by nonmembers
      */
-
+    
     double getReal() const {
         return this->real;
     }
@@ -123,5 +104,7 @@ public:
     friend Complex operator/(double sReal, const Complex &c);
 
     friend bool operator==(double sReal, const Complex &c);
+
+    friend bool operator!=(double sReal, const Complex &c);
 
 };

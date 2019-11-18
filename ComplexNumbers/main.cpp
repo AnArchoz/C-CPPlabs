@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Complex.cpp"
+#include "Complex.h"
 
 int main() {
     Complex a(2.1, 5.2);
@@ -14,15 +14,23 @@ int main() {
     c *= c;
     a + 7;
     7 + a;
-    b * 5;
+    b * 5;  
     5 * b;
 
-    std::cout << a;
-    std::cout << b * a;
-    std::cout << (c *= d);
+    std::cout << a<< "\n";
+    std::cout << b * a<< "\n";
+    std::cout << (c *= d)<< "\n";
 
-    std::cout << c << d;
-
+    std::cout << c << d<< "\n";
+    std::cout << (c != d)<< "\n";
+    
+    c=d;
+    
+    std::cout << (c == d) << "\n";
+    
+    std::cout << c.getPhase()<< "\n";
+    std::cout << c.getAmplitude()<< "\n";
+ 
 
     return 0;
 }
