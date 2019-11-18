@@ -1,4 +1,5 @@
 #pragma once
+
 class StackCpp {
 private:
     int last; // Index of free node on stack
@@ -7,12 +8,12 @@ private:
     int *data; //Array pointer to be filled
 public:
     StackCpp();
-    
-    StackCpp(const StackCpp& s);
 
-    explicit StackCpp(StackCpp *s);
+    StackCpp(const StackCpp &s);
 
-    StackCpp& operator=(StackCpp *s);
+    // explicit StackCpp(const StackCpp *s);
+
+    StackCpp &operator=(const StackCpp &s);
 
     ~StackCpp();
 

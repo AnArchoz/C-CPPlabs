@@ -5,19 +5,19 @@ StackCpp::StackCpp() {
     this->last = -1;
     this->counter = 0;
     this->maxSize = 20;
-    this->data = (int*)(malloc(this->maxSize * sizeof(int)));
+    this->data = (int *) (malloc(this->maxSize * sizeof(int)));
 }
 
-StackCpp::StackCpp(StackCpp *s) {
-    this->last = s->last;
-    this->counter = s->counter;
-    this->maxSize = s->maxSize;
-    
-    this->data = (int*)(malloc(this->maxSize * sizeof(s->data)));
+StackCpp::StackCpp(const StackCpp &s) {
+    this->last = s.last;
+    this->counter = s.counter;
+    this->maxSize = s.maxSize;
+
+    this->data = (int *) (malloc(this->maxSize * sizeof(s.data)));
 
     int i;
     for (i = 0; i < this->maxSize - 1; i++) {
-        this->data[i] = s->data[i];
+        this->data[i] = s.data[i];
     }
 }
 
@@ -29,7 +29,7 @@ void StackCpp::push(int element) {
             this->maxSize *= 2;
 
             /* double the size by reallocating memory */
-            this->data = (int*)(realloc(this->data, (this->maxSize) * sizeof(int)));
+            this->data = (int *) (realloc(this->data, (this->maxSize) * sizeof(int)));
         }
     }
     /* increment counter */
@@ -56,21 +56,18 @@ StackCpp::~StackCpp() {
     free(this->data);
 }
 
-StackCpp &StackCpp::operator=(StackCpp *s) {
-    if (this == s) {
-        return *this;
+StackCpp &StackCpp::operator=(const StackCpp &s) {
+    
+    this->last = s.last;
+    this->counter = s.counter;
+    this->maxSize = s.maxSize;
+
+    this->data = (int *) (realloc(this->data, (s.maxSize) * sizeof(s.data)));
+
+    int i;
+    for (i = 0; i < this->maxSize - 1; i++) {
+        this->data[i] = s.data[i];
     }
-
-    this->last = s->last;
-    this->counter = s->counter;
-    this->maxSize = s->maxSize;
-
-    this->data = (int*)(realloc(this->data, (s->maxSize) * sizeof(s->data)));
-
-//     int i;
-//     for (i = 0; i < this->maxSize - 1; i++) {
-//         this->data[i] = s->data[i];
-//     }
 
     return *this;
 }
