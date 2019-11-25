@@ -1,5 +1,4 @@
 #include "Poly.h"                                                        // Defines class Poly
-#include "Poly.cpp"
 #include <iostream>
 
 using namespace std;

@@ -12,6 +12,8 @@ public:
     Poly();
 
     Poly(double coef);
+    
+    Poly(std::vector<double> vec);
 
     ~Poly();
 
